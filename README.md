@@ -13,7 +13,7 @@ basic.py reads 2 input images, uses one for training and second one for validati
 # Webcam
 main.py reads all images in the directory PhotosWebcam for training and reads real-time image on webcam for validation. If a face is recognized, the person 's name and current time will be recorded into Attendance.csv
 ![Alt text](./Doc/DEMOIMG5.png?raw=true)
-![Alt text](./Doc/DemoImg6.jpg?raw=true)
-![Alt text](./Doc/DemoImg7.png?raw=true)
+![Alt text](./Doc/DemoImg6.png?raw=true)
+![Alt text](./Doc/Demoimg7.png?raw=true)
 ![Alt text](./Doc/excel.png?raw=true)
 
