@@ -10,7 +10,7 @@ imgElon = face_recognition.load_image_file('./PhotosBasic/Elon1.jpg')
 imgElon = cv2.cvtColor(imgElon, cv2.COLOR_BGR2RGB)
 
 # Testing data
-imgTest = face_recognition.load_image_file('./PhotosBasic/Elon2.jpg')
+imgTest = face_recognition.load_image_file('./PhotosBasic/JackMa1.jpg')
 imgTest = cv2.cvtColor(imgTest, cv2.COLOR_BGR2RGB)
 
 # Find face location of training data

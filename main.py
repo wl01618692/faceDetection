@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import face_recognition
 import os
-from mss import mss
 from datetime import datetime
 
 nameList = []
