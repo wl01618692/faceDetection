@@ -3,6 +3,7 @@ import numpy as np
 import face_recognition
 import os
 from datetime import datetime
+import mysql.connector
 
 nameList = []
 path = './PhotosWebcam'
@@ -18,6 +19,36 @@ for cl in myList:
 
 print("Input photos are: ", myList)
 print("Trained photos are: ", classNames)
+
+
+# Add sql database https://www.w3school.com.cn/python/python_mysql_insert.asp
+# Add pythonqt login GUI
+# Add download, scrapper https://blog.csdn.net/m0_46503920/article/details/105170953
+# Create database
+mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        passwd="111"
+)
+
+mycursor = mydb.cursor()
+mycursor.execute("CREATE DATABASE mydatabase")
+mycursor.execute("SHOW DATABASES")
+
+
+def addToDatabase(name, time):
+    sql = "INSERT INTO customers (name, time) VALUES (%s, %s)"
+    val = [
+        (name, time)
+    ]
+
+    mycursor.executemany(sql, val)
+
+    mydb.commit()
+
+    print(mycursor.rowcount, "was inserted.")
+
+
 
 def findEncodings(images):
     encodeList = []
@@ -38,6 +69,7 @@ def markAttendance(name):
                 now = datetime.now()
                 dtString = now.strftime('%H:%M:%S')
                 f.writelines(f'\n{name},{dtString}')
+                addToDatabase(name, dtString)
 
 
 if __name__ == '__main__':
