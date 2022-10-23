@@ -6,11 +6,11 @@ import os
 # Reads an image file for training with SVM, another image for validation
 
 # Training data
-imgElon = face_recognition.load_image_file('./PhotosBasic/Elon1.jpg')
+imgElon = face_recognition.load_image_file('./PhotosBasic/CalvinTraining.jpg')
 imgElon = cv2.cvtColor(imgElon, cv2.COLOR_BGR2RGB)
 
 # Testing data
-imgTest = face_recognition.load_image_file('./PhotosBasic/JackMa1.jpg')
+imgTest = face_recognition.load_image_file('./PhotosBasic/Calvin.jpg')
 imgTest = cv2.cvtColor(imgTest, cv2.COLOR_BGR2RGB)
 
 # Find face location of training data

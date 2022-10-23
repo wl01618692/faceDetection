@@ -4,6 +4,8 @@ import face_recognition
 import os
 from datetime import datetime
 import mysql.connector
+from PIL import Image, ImageDraw
+import pandas as pd
 
 nameList = []
 path = './PhotosWebcam'
@@ -20,21 +22,18 @@ for cl in myList:
 print("Input photos are: ", myList)
 print("Trained photos are: ", classNames)
 
-
-# Add sql database https://www.w3school.com.cn/python/python_mysql_insert.asp
-# Add pythonqt login GUI
-# Add download, scrapper https://blog.csdn.net/m0_46503920/article/details/105170953
 # Create database
 mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        passwd="111"
+        passwd="111",
+        port='3306',
+        db='attendance'
 )
 
 mycursor = mydb.cursor()
 mycursor.execute("CREATE DATABASE mydatabase")
 mycursor.execute("SHOW DATABASES")
-
 
 def addToDatabase(name, time):
     sql = "INSERT INTO customers (name, time) VALUES (%s, %s)"
@@ -48,7 +47,36 @@ def addToDatabase(name, time):
 
     print(mycursor.rowcount, "was inserted.")
 
+def face_square():
+    """
+    框选人脸部位
+    """
+    face_image = face_recognition.load_image_file('../origin_face/face2.jpg')
+    face_location = face_recognition.face_locations(face_image, model='cnn')
+    print(face_location)
+    pil_image = Image.fromarray(face_image)
+    pos = face_location[0]
+    d = ImageDraw.Draw(pil_image, 'RGBA')
+    d.rectangle((pos[3], pos[0], pos[1], pos[2]))
+    pil_image.show()
+    pil_image.save('result.jpg')
 
+def face_lipstick():
+    """
+    上口红
+    """
+    face_image = face_recognition.load_image_file('../origin_face/face2.jpg')
+    face_landmarks_list = face_recognition.face_landmarks(face_image)
+    print(face_landmarks_list)
+    for face_landmarks in face_landmarks_list:
+        pil_image = Image.fromarray(face_image)
+        d = ImageDraw.Draw(pil_image, 'RGBA')
+        d.polygon(face_landmarks['top_lip'], fill=(150, 0, 0, 128))
+        d.polygon(face_landmarks['bottom_lip'], fill=(150, 0, 0, 128))
+        d.line(face_landmarks['top_lip'], fill=(150, 0, 0, 64), width=3)
+        d.line(face_landmarks['bottom_lip'], fill=(150, 0, 0, 64), width=3)
+        pil_image.show()
+        pil_image.save('result.jpg')
 
 def findEncodings(images):
     encodeList = []
@@ -69,8 +97,11 @@ def markAttendance(name):
                 now = datetime.now()
                 dtString = now.strftime('%H:%M:%S')
                 f.writelines(f'\n{name},{dtString}')
-                addToDatabase(name, dtString)
+                # addToDatabase(name, dtString)
 
+def DisplayCsv():
+    df = pd.read_csv('Attendance.csv')
+    print(df.info())
 
 if __name__ == '__main__':
 
