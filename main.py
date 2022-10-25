@@ -6,6 +6,7 @@ from datetime import datetime
 import mysql.connector
 from PIL import Image, ImageDraw
 import pandas as pd
+import sys
 
 nameList = []
 path = './PhotosWebcam'
