@@ -8,7 +8,7 @@ import sys
 
 # Training data
 if __name__ == '__main__':
-    if len(sys.argv) >= 1:
+    if len(sys.argv) > 1:
         file1 = sys.argv[1]
         file2 = sys.argv[2]
         imgElon = face_recognition.load_image_file(file1)
