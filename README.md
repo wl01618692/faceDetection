@@ -1,5 +1,5 @@
 # Face Detection with attendance system
-This project supports a face detection system with a webcam. The source code can be found in two files: basic.py and main.py. All the photos used for training and validation can be found at ./PhotoBasics and ./PhotosWebcam. The output record file can be found at ./attendance.csv. This project requires you to install the following package: cv, face_recognition, mysql, pandas, numpy, and PIL.
+This project supports a face detection system with a webcam connected to a Mysql database. The source code can be found in two files: basic.py and main.py. All the photos used for training and validation can be found at ./PhotoBasics and ./PhotosWebcam. The output record file can be found at ./attendance.csv. This project requires you to install the following package: cv, face_recognition, mysql, pandas, numpy, and PIL.
 # Usage:
 ```bash
 python basic.py
