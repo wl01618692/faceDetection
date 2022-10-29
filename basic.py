@@ -15,7 +15,7 @@ if __name__ == '__main__':
         imgTest = face_recognition.load_image_file(file2)
     else:
         imgElon = face_recognition.load_image_file('./PhotosBasic/CalvinTraining.jpg')
-        imgTest = face_recognition.load_image_file('./PhotosBasic/Calvin.jpg')
+        imgTest = face_recognition.load_image_file('PhotosWebcam/Calvin.jpg')
 
     imgElon = cv2.cvtColor(imgElon, cv2.COLOR_BGR2RGB)
     imgTest = cv2.cvtColor(imgTest, cv2.COLOR_BGR2RGB)

@@ -17,9 +17,14 @@ main.py reads all images in the directory PhotosWebcam for training and reads re
 ![Alt text](./Doc/DEMOIMG5.png?raw=true)
 ![Alt text](./Doc/DemoImg6.png?raw=true)
 ![Alt text](./Doc/Demoimg7.png?raw=true)
+![Alt text](./Doc/gif.gif?raw=true)
 ![Alt text](./Doc/excel.png?raw=true)
 # Package
 Make sure that you install mysql-connector to run the main.py program. To install mysql-connector, you can use
 ```
 python -m pip install mysql-connector
+```
+To install face_recognition_models, you can use
+```
+pip install face_recognition_models
 ```
