@@ -8,7 +8,7 @@ python main.py
 ```
 # Basic
 The first file (basic.py) reads two input file paths through command line arguments., uses the first one for training and second one for validation, and determines if the person in the second image is the same as the person in the first. After comparing, you can press any key to terminate the program. If there are no input file paths, the program will automatically use my image ./PhotosBasic/Calvin.jpg and ./PhotosBasic/Calvin2.jpg by default.
-![Alt text](./Doc/DemoImg8.png?raw=true)
+![Alt text](./Doc/Demoimg8.png?raw=true)
 ![Alt text](./Doc/DemoImg1.jpg?raw=true)
 ![Alt text](./Doc/DemoImg2.jpg?raw=true)
 ![Alt text](./Doc/DemoImg3.png?raw=true)
