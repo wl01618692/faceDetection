@@ -28,7 +28,6 @@ mydb = mysql.connector.connect(
         host="localhost",
         user="root",
         passwd="111",
-        port='3306',
         db='attendance'
 )
 
@@ -43,9 +42,7 @@ def addToDatabase(name, time):
     ]
 
     mycursor.executemany(sql, val)
-
     mydb.commit()
-
     print(mycursor.rowcount, "was inserted.")
 
 def face_square():
@@ -64,7 +61,7 @@ def face_square():
 
 def face_lipstick():
     """
-    上口红
+    口红
     """
     face_image = face_recognition.load_image_file('../origin_face/face2.jpg')
     face_landmarks_list = face_recognition.face_landmarks(face_image)
